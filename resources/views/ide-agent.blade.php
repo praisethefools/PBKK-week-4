@@ -5,31 +5,31 @@
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
 
-    {{-- ========================================================================= --}}
-    {{-- TANTANGAN 1: TOGGLE TEMA DINAMIS (Slide 41)                              --}}
-    {{-- Mengubah tampilan halaman berdasarkan parameter rute /ide-agent?mode=dark --}}
-    {{-- ========================================================================= --}}
     {{-- Header Halaman dengan Tombol Switch Mode Gelap / Terang (Tantangan 1) --}}
-    <div class="flex items-center justify-between pb-2 border-b {{ $isDark ? 'border-slate-800' : 'border-slate-200' }}">
+    <div class="flex items-center justify-between pb-4 border-b {{ $isDark ? 'border-slate-800' : 'border-slate-200' }}">
         <div>
-            <h1 class="text-xl font-bold tracking-tight {{ $isDark ? 'text-white' : 'text-slate-800' }}">
+            <h1 class="text-xl font-bold tracking-tight {{ $isDark ? 'text-white' : 'text-slate-900' }}">
                 Ide-Riset Agentic AI
             </h1>
-            <p class="text-xs {{ $isDark ? 'text-slate-400' : 'text-slate-500' }}">
+            <p class="text-xs {{ $isDark ? 'text-slate-400' : 'text-slate-500' }} mt-0.5">
                 Rancangan platform otomasi pencarian lowongan kerja dan pembuatan CV relevan.
             </p>
         </div>
 
-        {{-- Tombol Switch Tema --}}
+        {{-- Switch Mode Gelap / Terang Tanpa Emotikon --}}
         <a href="{{ route('ide.agent', ['mode' => $isDark ? 'light' : 'dark']) }}"
-           title="{{ $isDark ? 'Beralih ke Mode Terang' : 'Beralih ke Mode Gelap' }}"
-           class="inline-flex items-center p-1 rounded-full border transition-colors {{ $isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-100 border-slate-300' }}">
-            <span class="px-2.5 py-1 rounded-full text-xs flex items-center gap-1 transition-all {{ $isDark ? 'text-slate-400' : 'bg-white shadow-xs text-slate-800 font-semibold' }}">
-                ☀️ Terang
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs flex items-center gap-1 transition-all {{ $isDark ? 'bg-slate-700 shadow-xs text-white font-semibold' : 'text-slate-400' }}">
-                🌙 Gelap
-            </span>
+           class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border text-xs font-medium transition {{ $isDark ? 'bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-750' : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50 shadow-xs' }}">
+            @if ($isDark)
+                <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+                <span>Mode Gelap</span>
+            @else
+                <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+                <span>Mode Terang</span>
+            @endif
         </a>
     </div>
 
@@ -42,7 +42,7 @@
 
     @if ($errors->any())
         <x-status-banner tipe="error">
-            <p class="font-bold mb-1">Harap periksa kembali isian formulir:</p>
+            <p class="font-semibold mb-1">Harap periksa kembali isian formulir:</p>
             <ul class="list-disc list-inside text-xs">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -51,16 +51,13 @@
         </x-status-banner>
     @endif
 
-    {{-- ========================================================================= --}}
-    {{-- VISUALISASI RANCANGAN PLATFORM AGENTIC AI KELOMPOK (Slide 39)            --}}
-    {{-- Konsep: Pencari Lowongan Kerja, Pembuat CV Khusus, dan Apply via User     --}}
-    {{-- ========================================================================= --}}
-    <div class="rounded-xl border p-6 sm:p-8 transition-colors duration-200 {{ $isDark ? 'bg-slate-800 border-slate-700 text-slate-100' : 'bg-white border-slate-200 text-slate-800' }} shadow-xs">
-        <div class="mb-5 pb-4 border-b {{ $isDark ? 'border-slate-700' : 'border-slate-100' }}">
-            <span class="text-xs font-bold text-blue-600 block uppercase tracking-wider mb-1">
+    {{-- Visualisasi Rancangan Platform Agentic AI Kelompok --}}
+    <div class="rounded-lg border p-6 transition-colors duration-200 {{ $isDark ? 'bg-slate-800/90 border-slate-700 text-slate-100' : 'bg-white border-slate-200/90 text-slate-800 shadow-[0_1px_2px_rgba(0,0,0,0.03)]' }}">
+        <div class="mb-5 pb-3 border-b {{ $isDark ? 'border-slate-700' : 'border-slate-100' }}">
+            <span class="text-[11px] font-semibold text-blue-600 block uppercase tracking-wider mb-0.5">
                 Proyek Kelompok PBKK
             </span>
-            <h2 class="text-xl font-bold tracking-tight">
+            <h2 class="text-lg font-bold tracking-tight {{ $isDark ? 'text-white' : 'text-slate-900' }}">
                 Rancangan Platform: AutoJob &amp; Tailored CV Assistant
             </h2>
             <p class="text-xs {{ $isDark ? 'text-slate-400' : 'text-slate-500' }} mt-1">
@@ -69,10 +66,10 @@
         </div>
 
         {{-- Visualisasi Alur 4 Tahap --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-5">
             @foreach ($tahapanPlatform as $tahap)
-                <div class="rounded-lg p-4 border transition-colors {{ $isDark ? 'bg-slate-900 border-slate-700' : 'bg-slate-50 border-slate-200' }}">
-                    <h3 class="font-bold text-sm mb-1.5 {{ $isDark ? 'text-blue-400' : 'text-blue-800' }}">
+                <div class="rounded-md p-4 border transition-colors {{ $isDark ? 'bg-slate-900/80 border-slate-700/80' : 'bg-slate-50/70 border-slate-200/80' }}">
+                    <h3 class="font-semibold text-xs sm:text-sm mb-1.5 {{ $isDark ? 'text-blue-400' : 'text-blue-900' }}">
                         {{ $tahap['tahap'] }}
                     </h3>
                     <p class="text-xs {{ $isDark ? 'text-slate-300' : 'text-slate-600' }} leading-relaxed">
@@ -83,51 +80,46 @@
         </div>
 
         {{-- Catatan Prinsip Keamanan & Etika Alur --}}
-        <div class="p-3.5 rounded-lg border text-xs {{ $isDark ? 'bg-slate-900/60 border-slate-700 text-slate-300' : 'bg-amber-50 border-amber-200 text-amber-900' }}">
-            <strong>Prinsip Utama: Human-in-the-Loop.</strong> Agen hanya bertindak sebagai asisten pencari dan peracik dokumen. Keputusan pengiriman lamaran mutlak berada di tangan pengguna untuk menjaga keaslian data dan privasi pelamar.
+        <div class="p-3 rounded-md border text-xs {{ $isDark ? 'bg-slate-900/60 border-slate-700 text-slate-300' : 'bg-slate-50 border-slate-200 text-slate-700' }}">
+            <strong>Prinsip Utama: Human-in-the-Loop.</strong> Agen bertindak sebagai asisten pencari dan pembuat draf dokumen. Keputusan pengiriman lamaran mutlak berada di tangan pengguna.
         </div>
     </div>
 
-    {{-- ========================================================================= --}}
-    {{-- DUA KOLOM: FORMULIR PENGUMPULAN IDE & DAFTAR RENCANA FITUR (Slide 39)    --}}
-    {{-- ========================================================================= --}}
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+    {{-- Dua Kolom: Formulir Pengumpulan Ide & Daftar Rencana Fitur --}}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
 
         {{-- Kolom 1: Formulir Pengumpulan Ide --}}
-        <div class="rounded-xl border p-6 transition-colors duration-200 {{ $isDark ? 'bg-slate-800 border-slate-700 text-slate-100' : 'bg-white border-slate-200 text-slate-800' }} shadow-xs">
-            <h2 class="text-base font-bold mb-1">
+        <div class="rounded-lg border p-5 transition-colors duration-200 {{ $isDark ? 'bg-slate-800/90 border-slate-700 text-slate-100' : 'bg-white border-slate-200/90 text-slate-800 shadow-[0_1px_2px_rgba(0,0,0,0.03)]' }}">
+            <h2 class="text-sm font-bold tracking-tight mb-1 {{ $isDark ? 'text-white' : 'text-slate-900' }}">
                 Formulir Pengumpulan Ide Fitur
             </h2>
             <p class="text-xs {{ $isDark ? 'text-slate-400' : 'text-slate-500' }} mb-4">
-                Sampaikan ide modul atau fitur tambahan untuk platform agen lowongan kerja ini.
+                Sampaikan usulan modul atau alur kerja tambahan untuk pengembangan platform.
             </p>
 
-            <form action="{{ route('ide.store') }}" method="POST" class="space-y-3.5">
-                {{-- Token CSRF --}}
+            <form action="{{ route('ide.store') }}" method="POST" class="space-y-3">
                 @csrf
-
-                {{-- Menjaga query mode tetap aktif setelah pengiriman form --}}
                 <input type="hidden" name="mode" value="{{ $mode }}">
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1 {{ $isDark ? '!text-slate-300' : '' }}">
+                    <label class="block text-xs font-medium mb-1 {{ $isDark ? 'text-slate-300' : 'text-slate-700' }}">
                         Judul Ide <span class="text-rose-500">*</span>
                     </label>
                     <input type="text"
                            name="judul"
                            value="{{ old('judul') }}"
                            required
-                           placeholder="Contoh: Ekstraksi Keahlian Otomatis dari Portofolio"
-                           class="w-full text-xs px-3 py-2 rounded-lg border focus:outline-none focus:ring-1 {{ $isDark ? 'bg-slate-900 border-slate-700 text-white focus:ring-blue-500' : 'bg-white border-slate-300 text-slate-800 focus:ring-blue-600' }}">
+                           placeholder="Nama modul atau ide fitur..."
+                           class="w-full text-xs px-3 py-2 rounded-md border focus:outline-none focus:ring-1 {{ $isDark ? 'bg-slate-900 border-slate-700 text-white focus:ring-blue-500' : 'bg-white border-slate-300 text-slate-800 focus:ring-blue-700' }}">
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
+                <div class="grid grid-cols-2 gap-2.5">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1 {{ $isDark ? '!text-slate-300' : '' }}">
+                        <label class="block text-xs font-medium mb-1 {{ $isDark ? 'text-slate-300' : 'text-slate-700' }}">
                             Kategori <span class="text-rose-500">*</span>
                         </label>
                         <select name="kategori"
-                                class="w-full text-xs px-2.5 py-2 rounded-lg border focus:outline-none focus:ring-1 {{ $isDark ? 'bg-slate-900 border-slate-700 text-white focus:ring-blue-500' : 'bg-white border-slate-300 text-slate-800 focus:ring-blue-600' }}">
+                                class="w-full text-xs px-2.5 py-2 rounded-md border focus:outline-none focus:ring-1 {{ $isDark ? 'bg-slate-900 border-slate-700 text-white focus:ring-blue-500' : 'bg-white border-slate-300 text-slate-800 focus:ring-blue-700' }}">
                             <option value="Pencarian Lowongan">Pencarian Lowongan</option>
                             <option value="Generasi CV">Generasi CV</option>
                             <option value="Persetujuan User">Persetujuan User</option>
@@ -136,11 +128,11 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1 {{ $isDark ? '!text-slate-300' : '' }}">
-                            Tingkat Urgensi <span class="text-rose-500">*</span>
+                        <label class="block text-xs font-medium mb-1 {{ $isDark ? 'text-slate-300' : 'text-slate-700' }}">
+                            Prioritas <span class="text-rose-500">*</span>
                         </label>
                         <select name="urgensi"
-                                class="w-full text-xs px-2.5 py-2 rounded-lg border focus:outline-none focus:ring-1 {{ $isDark ? 'bg-slate-900 border-slate-700 text-white focus:ring-blue-500' : 'bg-white border-slate-300 text-slate-800 focus:ring-blue-600' }}">
+                                class="w-full text-xs px-2.5 py-2 rounded-md border focus:outline-none focus:ring-1 {{ $isDark ? 'bg-slate-900 border-slate-700 text-white focus:ring-blue-500' : 'bg-white border-slate-300 text-slate-800 focus:ring-blue-700' }}">
                             <option value="Rendah">Rendah</option>
                             <option value="Sedang">Sedang</option>
                             <option value="Tinggi">Tinggi</option>
@@ -149,27 +141,27 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1 {{ $isDark ? '!text-slate-300' : '' }}">
-                        Deskripsi Singkat Ide <span class="text-rose-500">*</span>
+                    <label class="block text-xs font-medium mb-1 {{ $isDark ? 'text-slate-300' : 'text-slate-700' }}">
+                        Deskripsi Alur / Fitur <span class="text-rose-500">*</span>
                     </label>
                     <textarea name="deskripsi"
                               rows="3"
                               required
-                              placeholder="Jelaskan bagaimana modul ini membantu mahasiswa atau pelamar kerja..."
-                              class="w-full text-xs px-3 py-2 rounded-lg border focus:outline-none focus:ring-1 {{ $isDark ? 'bg-slate-900 border-slate-700 text-white focus:ring-blue-500' : 'bg-white border-slate-300 text-slate-800 focus:ring-blue-600' }}">{{ old('deskripsi') }}</textarea>
+                              placeholder="Uraikan bagaimana fitur ini bekerja dan manfaatnya..."
+                              class="w-full text-xs px-3 py-2 rounded-md border focus:outline-none focus:ring-1 {{ $isDark ? 'bg-slate-900 border-slate-700 text-white focus:ring-blue-500' : 'bg-white border-slate-300 text-slate-800 focus:ring-blue-700' }}">{{ old('deskripsi') }}</textarea>
                 </div>
 
                 <button type="submit"
-                        class="w-full py-2.5 px-4 rounded-lg text-xs font-semibold bg-blue-700 hover:bg-blue-800 text-white transition">
-                    Kirimkan Ide ke Sistem
+                        class="w-full py-2 px-4 rounded-md text-xs font-semibold bg-blue-800 hover:bg-blue-900 text-white transition">
+                    Simpan Ide
                 </button>
             </form>
         </div>
 
         {{-- Kolom 2: Katalog Ide Riset yang Sudah Tercatat --}}
         <div class="space-y-3">
-            <h2 class="text-base font-bold {{ $isDark ? 'text-slate-100' : 'text-slate-800' }}">
-                Daftar Ide Fitur Terdaftar
+            <h2 class="text-sm font-bold tracking-tight {{ $isDark ? 'text-white' : 'text-slate-900' }}">
+                Daftar Usulan Fitur
             </h2>
 
             @forelse ($daftarIde as $ide)
@@ -180,7 +172,7 @@
                         {{ $ide['deskripsi'] }}
                     </p>
                     <x-slot:footer>
-                        <span class="text-xs {{ $isDark ? 'text-slate-400' : 'text-slate-500' }}">
+                        <span class="text-[11px] {{ $isDark ? 'text-slate-400' : 'text-slate-500' }}">
                             Prioritas: <strong>{{ $ide['urgensi'] }}</strong>
                         </span>
                     </x-slot:footer>

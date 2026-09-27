@@ -6,24 +6,24 @@
 <div class="max-w-4xl mx-auto space-y-6">
 
     {{-- Header Banner Profil Mahasiswa --}}
-    <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-xs">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+    <div class="bg-white rounded-lg border border-slate-200/90 p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
             <div>
-                <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 mb-2">
+                <span class="inline-block px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200/60 mb-2">
                     {{ $mahasiswa['status'] }}
                 </span>
-                <h1 class="text-2xl font-bold text-slate-800 tracking-tight">
+                <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
                     {{ $mahasiswa['nama'] }}
                 </h1>
-                <p class="text-sm text-slate-500 font-mono mt-0.5">
+                <p class="text-xs sm:text-sm text-slate-500 font-mono mt-0.5">
                     NRP: {{ $mahasiswa['nrp'] }} &bull; {{ $mahasiswa['email'] }}
                 </p>
             </div>
 
-            <div class="text-left sm:text-right">
-                <span class="text-xs text-slate-400 block">Departemen</span>
-                <span class="text-xs font-semibold text-slate-700 block">{{ $mahasiswa['departemen'] }}</span>
-                <span class="text-xs text-slate-500 block">{{ $mahasiswa['institusi'] }}</span>
+            <div class="text-left sm:text-right text-xs">
+                <span class="text-slate-400 block">Departemen</span>
+                <span class="font-semibold text-slate-800 block">{{ $mahasiswa['departemen'] }}</span>
+                <span class="text-slate-500 block">{{ $mahasiswa['institusi'] }}</span>
             </div>
         </div>
 
@@ -55,12 +55,12 @@
             <div class="space-y-2 text-xs">
                 <div>
                     <span class="text-slate-400 block">Peran Utama:</span>
-                    <span class="font-semibold text-slate-800 text-sm block mt-0.5">{{ $mahasiswa['peran_kelompok'] }}</span>
+                    <span class="font-semibold text-slate-900 text-sm block mt-0.5">{{ $mahasiswa['peran_kelompok'] }}</span>
                 </div>
                 <div>
                     <span class="text-slate-400 block">Fokus Proyek:</span>
                     <p class="text-slate-600 mt-0.5">
-                        Mengembangkan alur otomatisasi pencarian lowongan kerja, kustomisasi CV per lowongan, dan mekanisme konfirmasi user sebelum submit.
+                        Pengembangan alur kerja otomasi pencarian lowongan kerja, kustomisasi CV per posisi lowongan, dan mekanisme approval sebelum lamaran dikirimkan.
                     </p>
                 </div>
             </div>
@@ -68,20 +68,20 @@
     </div>
 
     {{-- Tabel Mata Kuliah dengan Implementasi Looping Blade ($loop->iteration, $loop->first, $loop->last) --}}
-    <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs">
+    <div class="bg-white rounded-lg border border-slate-200/90 p-5 sm:p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
         <div class="mb-4">
-            <h2 class="text-base font-bold text-slate-800">
+            <h2 class="text-sm sm:text-base font-bold text-slate-900">
                 Daftar Mata Kuliah Terkait
             </h2>
             <p class="text-xs text-slate-500">
-                Penerapan directive <code>@@forelse</code> dan variabel bantu <code>$loop</code> (Slide 31 &amp; 35).
+                Riwayat rencana studi menggunakan directive <code>@@forelse</code> dan variabel bantu <code>$loop</code> (Slide 31 &amp; 35).
             </p>
         </div>
 
         <div class="overflow-x-auto">
             <table class="w-full text-left text-xs sm:text-sm">
                 <thead>
-                    <tr class="border-b border-slate-200 text-slate-500 text-xs uppercase tracking-wider">
+                    <tr class="border-b border-slate-200 text-slate-500 text-[11px] uppercase tracking-wider font-semibold">
                         <th class="py-2.5 px-3">No</th>
                         <th class="py-2.5 px-3">Kode</th>
                         <th class="py-2.5 px-3">Nama Mata Kuliah</th>
@@ -92,27 +92,24 @@
                 </thead>
                 <tbody class="divide-y divide-slate-100">
                     @forelse ($mataKuliah as $mk)
-                        <tr class="{{ $loop->first ? 'bg-blue-50/50 font-medium' : '' }} {{ $loop->last ? 'bg-slate-50/50' : '' }} hover:bg-slate-50 transition">
+                        <tr class="{{ $loop->first ? 'bg-slate-50/80 font-medium' : '' }} hover:bg-slate-50/50 transition">
                             <td class="py-2.5 px-3 font-mono text-slate-400 text-xs">
                                 {{ $loop->iteration }}
                             </td>
-                            <td class="py-2.5 px-3 font-mono text-slate-600">
+                            <td class="py-2.5 px-3 font-mono text-slate-600 text-xs">
                                 {{ $mk['kode'] }}
                             </td>
-                            <td class="py-2.5 px-3 text-slate-800">
+                            <td class="py-2.5 px-3 text-slate-900 font-medium">
                                 {{ $mk['nama'] }}
-                                @if ($loop->first)
-                                    <span class="ml-1 text-[10px] text-blue-700 font-bold">(Mata Kuliah Utama)</span>
-                                @endif
                             </td>
                             <td class="py-2.5 px-3 font-mono text-slate-700">
                                 {{ $mk['sks'] }}
                             </td>
-                            <td class="py-2.5 px-3 text-slate-600">
+                            <td class="py-2.5 px-3 text-slate-700">
                                 {{ $mk['dosen'] }}
                             </td>
                             <td class="py-2.5 px-3">
-                                <span class="inline-block px-2 py-0.5 rounded text-xs {{ $mk['status'] === 'Sedang Ditempuh' ? 'bg-blue-100 text-blue-800 font-semibold' : 'bg-slate-100 text-slate-700' }}">
+                                <span class="inline-block px-2 py-0.5 rounded text-[11px] {{ $mk['status'] === 'Sedang Ditempuh' ? 'bg-blue-50 text-blue-800 border border-blue-200/60 font-medium' : 'bg-slate-100 text-slate-700' }}">
                                     {{ $mk['status'] }}
                                 </span>
                             </td>
@@ -131,9 +128,9 @@
 
     {{-- Keahlian Teknis --}}
     <x-info-card title="Penguasaan Perangkat Lunak &amp; Teknologi">
-        <div class="flex flex-wrap gap-2 pt-1">
+        <div class="flex flex-wrap gap-1.5 pt-1">
             @foreach ($keahlian as $skill)
-                <span class="inline-block px-2.5 py-1 rounded-md text-xs bg-slate-100 text-slate-700 border border-slate-200">
+                <span class="inline-block px-2.5 py-1 rounded text-xs bg-slate-50 text-slate-700 border border-slate-200">
                     {{ $skill }}
                 </span>
             @endforeach

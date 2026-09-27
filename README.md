@@ -4,13 +4,10 @@ Aplikasi web akademik berbasis **Laravel 13**, **Blade Templating**, dan **Vite 
 
 ---
 
-## 👤 Identitas Mahasiswa
+## Identitas Mahasiswa
 
 - **Nama:** Abdurrahman Arrafi Ravsan Zarnadi
 - **NRP:** 5025241241
-- **Email:** 5025241241@student.its.ac.id
-- **Departemen:** Teknik Informatika — FTEIC ITS
-- **Peran:** vibe coding pecut claude
 
 ---
 
@@ -103,4 +100,3 @@ Seluruh 6 skenario pengujian dipastikan **100% lolos (PASS)**.
 ```
 
 ---
-&copy; 2026 Departemen Teknik Informatika ITS. Hak Cipta Dilindungi.

@@ -29,12 +29,6 @@ class PageController extends Controller
                 'link' => route('ide.agent'),
                 'linkText' => 'Lihat Rancangan',
             ],
-            [
-                'judul' => 'Implementasi Tugas 4',
-                'deskripsi' => 'Penggunaan master layout terpusat (@extends), komponen reusable (<x-info-card> & <x-status-banner>), dan bundler Vite.',
-                'link' => '#',
-                'linkText' => 'Spesifikasi Terpenuhi',
-            ],
         ];
 
         return view('beranda', compact('user', 'ringkasan'));
@@ -62,28 +56,28 @@ class PageController extends Controller
                 'kode' => 'IF4401',
                 'nama' => 'Pemrograman Berbasis Kerangka Kerja',
                 'sks' => 3,
-                'dosen' => 'Tim Dosen PBKK',
+                'dosen' => 'Dosen PBKK',
                 'status' => 'Sedang Ditempuh',
             ],
             [
                 'kode' => 'IF4301',
                 'nama' => 'Pemrograman Berorientasi Objek',
                 'sks' => 3,
-                'dosen' => 'Tim Dosen PBO',
+                'dosen' => 'Dosen PBO',
                 'status' => 'Lulus',
             ],
             [
                 'kode' => 'IF4202',
                 'nama' => 'Struktur Data dan Algoritma',
                 'sks' => 4,
-                'dosen' => 'Tim Dosen SDA',
+                'dosen' => 'Dosen SDA',
                 'status' => 'Lulus',
             ],
             [
                 'kode' => 'IF4305',
                 'nama' => 'Basis Data',
                 'sks' => 3,
-                'dosen' => 'Tim Dosen Basis Data',
+                'dosen' => 'Dosen Basis Data',
                 'status' => 'Lulus',
             ],
         ];

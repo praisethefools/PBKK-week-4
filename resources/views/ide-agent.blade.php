@@ -9,40 +9,28 @@
     {{-- TANTANGAN 1: TOGGLE TEMA DINAMIS (Slide 41)                              --}}
     {{-- Mengubah tampilan halaman berdasarkan parameter rute /ide-agent?mode=dark --}}
     {{-- ========================================================================= --}}
-    <div class="rounded-xl border p-5 transition-colors duration-200 {{ $isDark ? 'bg-slate-800 border-slate-700 text-slate-100' : 'bg-white border-slate-200 text-slate-800' }} shadow-xs">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-                <div class="flex items-center gap-2 mb-1">
-                    <span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold uppercase {{ $isDark ? 'bg-amber-400 text-slate-900' : 'bg-blue-100 text-blue-800' }}">
-                        Tantangan 1
-                    </span>
-                    <span class="text-xs font-mono {{ $isDark ? 'text-slate-400' : 'text-slate-500' }}">
-                        Status: {{ $isDark ? 'Mode Gelap Aktif (?mode=dark)' : 'Mode Terang Aktif (?mode=light)' }}
-                    </span>
-                </div>
-                <h1 class="text-lg font-bold tracking-tight">
-                    Kontrol Mode Tampilan Dinamis
-                </h1>
-                <p class="text-xs {{ $isDark ? 'text-slate-400' : 'text-slate-500' }} mt-0.5">
-                    Halaman ini membaca parameter URL <code>?mode=dark</code> melalui controller dan menerapkan class Tailwind dinamis pada layout.
-                </p>
-            </div>
-
-            {{-- Tombol Toggle --}}
-            <div>
-                @if ($isDark)
-                    <a href="{{ route('ide.agent', ['mode' => 'light']) }}"
-                       class="inline-block px-4 py-2 rounded-lg text-xs font-semibold bg-white text-slate-900 hover:bg-slate-100 transition shadow-xs">
-                        Beralih ke Mode Terang (?mode=light)
-                    </a>
-                @else
-                    <a href="{{ route('ide.agent', ['mode' => 'dark']) }}"
-                       class="inline-block px-4 py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 transition shadow-xs">
-                        Aktifkan Mode Gelap (?mode=dark)
-                    </a>
-                @endif
-            </div>
+    {{-- Header Halaman dengan Tombol Switch Mode Gelap / Terang (Tantangan 1) --}}
+    <div class="flex items-center justify-between pb-2 border-b {{ $isDark ? 'border-slate-800' : 'border-slate-200' }}">
+        <div>
+            <h1 class="text-xl font-bold tracking-tight {{ $isDark ? 'text-white' : 'text-slate-800' }}">
+                Ide-Riset Agentic AI
+            </h1>
+            <p class="text-xs {{ $isDark ? 'text-slate-400' : 'text-slate-500' }}">
+                Rancangan platform otomasi pencarian lowongan kerja dan pembuatan CV relevan.
+            </p>
         </div>
+
+        {{-- Tombol Switch Tema --}}
+        <a href="{{ route('ide.agent', ['mode' => $isDark ? 'light' : 'dark']) }}"
+           title="{{ $isDark ? 'Beralih ke Mode Terang' : 'Beralih ke Mode Gelap' }}"
+           class="inline-flex items-center p-1 rounded-full border transition-colors {{ $isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-100 border-slate-300' }}">
+            <span class="px-2.5 py-1 rounded-full text-xs flex items-center gap-1 transition-all {{ $isDark ? 'text-slate-400' : 'bg-white shadow-xs text-slate-800 font-semibold' }}">
+                ☀️ Terang
+            </span>
+            <span class="px-2.5 py-1 rounded-full text-xs flex items-center gap-1 transition-all {{ $isDark ? 'bg-slate-700 shadow-xs text-white font-semibold' : 'text-slate-400' }}">
+                🌙 Gelap
+            </span>
+        </a>
     </div>
 
     {{-- Notifikasi Sukses Form Submit via Komponen <x-status-banner> --}}

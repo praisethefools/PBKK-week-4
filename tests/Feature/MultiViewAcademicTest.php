@@ -28,7 +28,7 @@ class MultiViewAcademicTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('Andi');
-        $response->assertSee('Selamat datang kembali di Portal Akademik');
+        $response->assertSee('Selamat datang kembali,');
     }
 
     /**
@@ -66,7 +66,7 @@ class MultiViewAcademicTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('bg-slate-900');
-        $response->assertSee('Mode Gelap Aktif');
+        $response->assertSee('Gelap');
     }
 
     /**

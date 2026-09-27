@@ -53,8 +53,8 @@ class PageController extends Controller
             'fakultas' => 'Fakultas Teknologi Elektro dan Informatika Cerdas (FTEIC)',
             'institusi' => 'Institut Teknologi Sepuluh Nopember (ITS)',
             'status' => 'Mahasiswa Aktif',
-            'peran_kelompok' => 'Fullstack Developer & System Workflow Designer',
-            'deskripsi' => 'Mahasiswa Teknik Informatika ITS yang sedang menempuh mata kuliah Pemrograman Berbasis Kerangka Kerja (PBKK), fokus pada perancangan arsitektur web yang terstruktur dan integrasi alur agen cerdas.',
+            'peran_kelompok' => 'vibe coding pecut claude',
+            'deskripsi' => 'Mahasiswa Teknik Informatika ITS yang sedang menempuh mata kuliah Pemrograman Berbasis Kerangka Kerja (PBKK).',
         ];
 
         $mataKuliah = [
@@ -62,28 +62,28 @@ class PageController extends Controller
                 'kode' => 'IF4401',
                 'nama' => 'Pemrograman Berbasis Kerangka Kerja',
                 'sks' => 3,
-                'dosen' => 'Dr. Eng. Chastine Fatichah, S.Kom., M.Kom.',
+                'dosen' => 'Dosen PBKK',
                 'status' => 'Sedang Ditempuh',
             ],
             [
                 'kode' => 'IF4301',
                 'nama' => 'Pemrograman Berorientasi Objek',
                 'sks' => 3,
-                'dosen' => 'Dosen Pengampu PBKK',
+                'dosen' => 'Dosen PBKK',
                 'status' => 'Lulus',
             ],
             [
                 'kode' => 'IF4202',
                 'nama' => 'Struktur Data dan Algoritma',
                 'sks' => 4,
-                'dosen' => 'Dosen Pengampu SDA',
+                'dosen' => 'Dosen PBKK',
                 'status' => 'Lulus',
             ],
             [
                 'kode' => 'IF4305',
                 'nama' => 'Basis Data',
                 'sks' => 3,
-                'dosen' => 'Dosen Pengampu Basis Data',
+                'dosen' => 'Dosen PBKK',
                 'status' => 'Lulus',
             ],
         ];

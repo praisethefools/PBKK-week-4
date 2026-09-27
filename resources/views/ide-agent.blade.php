@@ -5,32 +5,14 @@
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
 
-    {{-- Header Halaman dengan Tombol Switch Mode Gelap / Terang (Tantangan 1) --}}
-    <div class="flex items-center justify-between pb-4 border-b {{ $isDark ? 'border-slate-800' : 'border-slate-200' }}">
-        <div>
-            <h1 class="text-xl font-bold tracking-tight {{ $isDark ? 'text-white' : 'text-slate-900' }}">
-                Ide-Riset Agentic AI
-            </h1>
-            <p class="text-xs {{ $isDark ? 'text-slate-400' : 'text-slate-500' }} mt-0.5">
-                Rancangan platform otomasi pencarian lowongan kerja dan pembuatan CV relevan.
-            </p>
-        </div>
-
-        {{-- Switch Mode Gelap / Terang Tanpa Emotikon --}}
-        <a href="{{ route('ide.agent', ['mode' => $isDark ? 'light' : 'dark']) }}"
-           class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border text-xs font-medium transition {{ $isDark ? 'bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-750' : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50 shadow-xs' }}">
-            @if ($isDark)
-                <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                </svg>
-                <span>Mode Gelap</span>
-            @else
-                <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                </svg>
-                <span>Mode Terang</span>
-            @endif
-        </a>
+    {{-- Header Halaman --}}
+    <div class="pb-4 border-b {{ $isDark ? 'border-slate-800' : 'border-slate-200' }}">
+        <h1 class="text-xl font-bold tracking-tight {{ $isDark ? 'text-white' : 'text-slate-900' }}">
+            Ide-Riset Agentic AI
+        </h1>
+        <p class="text-xs {{ $isDark ? 'text-slate-400' : 'text-slate-500' }} mt-0.5">
+            Rancangan platform otomasi pencarian lowongan kerja dan pembuatan CV relevan.
+        </p>
     </div>
 
     {{-- Notifikasi Sukses Form Submit via Komponen <x-status-banner> --}}
